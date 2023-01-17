@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.name
+{
+  border: 2px solid red;
+  border-radius: 20px;
+  
+  font-size: 3rem;
+  color: goldenrod;
+  font-family:'Courier New', Courier, monospace;
+}
