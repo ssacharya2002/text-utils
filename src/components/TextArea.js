@@ -8,25 +8,30 @@ export default function TextArea(props) {
 
   const capitalize = function () {
     setText(text.toUpperCase());
+    props.showAlert("Converted to uppecase", "success");
   };
   const lower = function () {
     setText(text.toLowerCase());
+    props.showAlert("Converted to lowercase", "success");
   };
   const clear = function () {
     setText("");
+    props.showAlert("Cleared all text","danger")
+
+
   };
   const copy = function () {
     try {
       navigator.clipboard.writeText(text);
-      alert("copied");
+      props.showAlert("Copied to clipboard", "success");
     } catch (err) {
-      // console.log("failed to copy");
+      // console.log("failed to copy");1220
     }
-  alert('hello');
   };
 
   const removeExtraSpace = function () {
     setText(text.replace(/\s+/g, " "));
+    props.showAlert("Extra spaces removed", "success");
   };
 
   const [text, setText] = useState("");
@@ -64,7 +69,7 @@ export default function TextArea(props) {
             className="form-group margin"
           >
             <label className="space" htmlFor="exampleFormControlTextarea1">
-              Enter text below..
+              <h1>Enter text below..</h1> 
             </label>
             <textarea
               style={
@@ -101,7 +106,7 @@ export default function TextArea(props) {
           </h3>
           <h3>{(text.split(" ").length * 2.08) / 60} </h3>
 
-          <p>{text === ""?"Enter text above to preview here ...":text}</p>
+          <p>{text === "" ? "Enter text above to preview here ..." : text}</p>
         </div>
       </div>
     </>
